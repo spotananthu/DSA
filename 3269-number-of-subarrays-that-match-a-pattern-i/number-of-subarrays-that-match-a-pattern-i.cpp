@@ -2,37 +2,27 @@ class Solution {
 public:
     int countMatchingSubarrays(vector<int>& nums, vector<int>& pattern) {
 
-        int n = nums.size();
-        int m = pattern.size();
-        int count = 0;
+       int count = 0;
+       int n=nums.size();
+       int m=pattern.size();
 
-        for (int i = 0; i + m < n; i++) {
+       if(n<m+1)
+        return 0; 
+
+       for(int i=0; i<n-m; ++i)
+       {
             bool valid = true;
 
-            for (int k = 0; k < m; k++) {
-                if (pattern[k] == 1) {
-                    if (!(nums[i + k + 1] > nums[i + k])) {
-                        valid = false;
-                        break;
-                    }
-                } 
-                else if (pattern[k] == 0) {
-                    if (!(nums[i + k + 1] == nums[i + k])) {
-                        valid = false;
-                        break;
-                    }
-                } 
-                else { // pattern[k] == -1
-                    if (!(nums[i + k + 1] < nums[i + k])) {
-                        valid = false;
-                        break;
-                    }
-                }
+            for(int k =0;k<m;++k)
+            {
+                int p = (((nums[i+k+1])>(nums[i+k]))-((nums[i+k+1])<(nums[i+k])));
+                if(p!=pattern[k])
+                    valid = false;
             }
 
-            if (valid) count++;
-        }
-
+        if(valid)
+            count++;
+       } 
         return count;
     }
 };
