@@ -17,7 +17,10 @@ public:
             {
                 int p = (((nums[i+k+1])>(nums[i+k]))-((nums[i+k+1])<(nums[i+k])));
                 if(p!=pattern[k])
+                {
                     valid = false;
+                    break;
+                }
             }
 
         if(valid)
