@@ -1,0 +1,10 @@
+1class Solution {
+2public:
+3    int fib(int n) {
+4
+5        if(n<=1) return n;
+6
+7        return fib(n-1) + fib(n-2);
+8        
+9    }
+10};
