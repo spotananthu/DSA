@@ -16,8 +16,8 @@
 16
 17        dummy->next = head;
 18
-19        ListNode *frstptr = dummy;
-20        ListNode *scndptr = dummy;
+19        ListNode* frstptr = dummy;
+20        ListNode* scndptr = dummy;
 21
 22        for(int i=0; i<n;++i)
 23            scndptr = scndptr->next;
